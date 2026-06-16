@@ -33,7 +33,7 @@ try {
         
         # Sanitize path to prevent directory traversal
         $sanitizedPath = $urlPath.Replace("..", "").Replace("\", "/")
-        $filePath = Join-Path "c:\Users\4-410-1\Desktop\test" $sanitizedPath.Substring(1)
+        $filePath = Join-Path $PSScriptRoot $sanitizedPath.Substring(1)
         
         if (Test-Path $filePath -PathType Leaf) {
             $bytes = [System.IO.File]::ReadAllBytes($filePath)

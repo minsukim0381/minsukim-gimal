@@ -8,12 +8,13 @@
 // TODO: Firebase Console에서 프로젝트 생성 후 아래 객체에 실제 발급받은 구성 정보를 복사하세요.
 // 구성 정보를 채워넣으면 자동으로 실시간 Firebase DB로 연결되고, 비워두면 LocalStorage 기반 데모 모드로 작동합니다.
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY_HERE",
-  authDomain: "YOUR_AUTH_DOMAIN_HERE",
-  projectId: "YOUR_PROJECT_ID_HERE",
-  storageBucket: "YOUR_STORAGE_BUCKET_HERE",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID_HERE",
-  appId: "YOUR_APP_ID_HERE"
+  apiKey: "AIzaSyCm0uikplXlDZAvn-0ISFNhE12nSvjV9OI",
+  authDomain: "minsukim-gimal.firebaseapp.com",
+  projectId: "minsukim-gimal",
+  storageBucket: "minsukim-gimal.firebasestorage.app",
+  messagingSenderId: "455425725991",
+  appId: "1:455425725991:web:b32bb84bdd020a664c2002",
+  measurementId: "G-S2SP4SYQN8"
 };
 
 // Check if config has been modified from the default placeholders
@@ -498,8 +499,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
-  });
-
   // ==========================================
   // [Section 6: Robot's Eye View Hotspots]
   // ==========================================
@@ -543,6 +542,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ==========================================
   // [Section 7: Digital Twin Simulator]
   // ==========================================
+  let activeSimTimeouts = [];
+
   const sliderGrip = document.getElementById("slider-grip");
   const sliderWeight = document.getElementById("slider-weight");
   const sliderFriction = document.getElementById("slider-friction");
@@ -599,7 +600,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const isSlipped = grip < weight * 1.5 || friction < 0.25;
 
     // 5. Execute states with animations
-    setTimeout(() => {
+    const mainTimeoutId = setTimeout(() => {
       if (isCrushed) {
         visualizerScreen.classList.add("sim-running-crush");
         simStatus.className = "status-indicator error";
@@ -623,11 +624,23 @@ document.addEventListener("DOMContentLoaded", async () => {
         simConsole.className = "console-line line-2 success";
         simConsole.innerHTML = `&gt; Success: 작업 완료 (Optimal Calculation)<br>&gt; 최적의 기계적 합치율 달성! 파지력(${grip}N) 및 마찰력(${friction}μ) 설계로 화물 안전 수송 완료.`;
       }
+
+      // Re-enable controls after animation finishes (4s for crush/slip, 5s for success)
+      const reenableDuration = (isCrushed || isSlipped) ? 4000 : 5000;
+      const reenableTimeoutId = setTimeout(() => {
+        toggleSimControls(false);
+      }, reenableDuration);
+      activeSimTimeouts.push(reenableTimeoutId);
     }, 1200); // 1.2s delay for "calculating" suspense feel
+    activeSimTimeouts.push(mainTimeoutId);
   });
 
   // Reset simulator back to default configs
   resetSimBtn.addEventListener("click", () => {
+    // Clear any active simulation timeouts
+    activeSimTimeouts.forEach(clearTimeout);
+    activeSimTimeouts = [];
+
     visualizerScreen.classList.remove("sim-running-success", "sim-running-slip", "sim-running-crush");
     
     // Default values
