@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physical AI | 물리 세계를 지배하는 지능</title>
+  <meta name="description" content="화면을 뚫고 현실로 나온 지능, 피지컬 AI 종합 안내 및 실시간 인터랙티브 투표/아이디어 게시판">
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Space Background Canvas -->
+  <canvas id="hero-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <span class="logo-glow">PHYSICAL</span><span class="logo-accent">.AI</span>
+      </a>
+      <nav class="nav-menu">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">What is AI?</a>
+        <a href="#compare" class="nav-link">Comparison</a>
+        <a href="#cases" class="nav-link">Cases</a>
+        <a href="#perception" class="nav-link">Perception</a>
+        <a href="#simulation" class="nav-link">Digital Twin</a>
+        <a href="#interactive" class="nav-link nav-btn">Vote & Ideas</a>
+      </nav>
+      <!-- DB Connection Status Badge -->
+      <div id="db-status" class="db-status-badge">Checking DB...</div>
+      <button class="mobile-toggle" aria-label="Toggle navigation">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Section 1: Hero -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-content">
+        <div class="hero-tag">NEXT GENERATION AI</div>
+        <h1 class="hero-title">화면을 뚫고<br>현실로 나온 지능,<br><span class="gradient-text">Physical AI</span></h1>
+        <p class="hero-subtitle">데이터와 사이버 공간에 머물던 인공지능이 로봇, 자율주행, 스마트 팩토리를 통해 물리적 세계(Real World)의 법칙을 지배하기 시작했습니다.</p>
+        <div class="hero-actions">
+          <a href="#interactive" class="btn btn-primary scroll-to">
+            <span>투표 참여하기</span>
+            <i data-lucide="arrow-right"></i>
+          </a>
+          <a href="#about" class="btn btn-secondary scroll-to">
+            <span>알아보기</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-glow-1"></div>
+      <div class="hero-glow-2"></div>
+    </section>
+
+    <!-- Section 2: What is Physical AI? -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">CORE CONCEPT</span>
+          <h2 class="section-title">What is Physical AI?</h2>
+          <p class="section-desc">피지컬 AI는 현실의 물리 법칙 안에서 실시간으로 주변을 인지하고, 판단하며, 행동하는 AI 기술의 진화 방식입니다.</p>
+        </div>
+        <div class="grid cards-grid">
+          <!-- Card 1 -->
+          <div class="concept-card">
+            <div class="card-num">01</div>
+            <div class="card-icon-wrapper cyan">
+              <i data-lucide="eye"></i>
+            </div>
+            <h3 class="card-title">인지 (Perception)</h3>
+            <p class="card-content">카메라, LiDAR, 초음파 등 멀티모달 센서를 결합해 물리적 환경 정보와 실시간 시각/공간 데이터를 완벽하게 획득합니다.</p>
+            <div class="card-glow"></div>
+          </div>
+          <!-- Card 2 -->
+          <div class="concept-card">
+            <div class="card-num">02</div>
+            <div class="card-icon-wrapper purple">
+              <i data-lucide="brain-circuit"></i>
+            </div>
+            <h3 class="card-title">추론 (Reasoning)</h3>
+            <p class="card-content">수집된 환경 데이터를 딥러닝과 실시간 물리 시뮬레이션 모델로 분석하여 최적의 경로 및 안전한 의사결정을 실시간으로 실행합니다.</p>
+            <div class="card-glow"></div>
+          </div>
+          <!-- Card 3 -->
+          <div class="concept-card">
+            <div class="card-num">03</div>
+            <div class="card-icon-wrapper green">
+              <i data-lucide="settings"></i>
+            </div>
+            <h3 class="card-title">행동 (Action)</h3>
+            <p class="card-content">판단된 의사결정을 정밀 모터, 그리퍼, 액추에이터 구동 신호로 변환하여 3차원 공간에서 직접적이고 정확한 작업을 실현합니다.</p>
+            <div class="card-glow"></div>
+          </div>
+          <!-- Card 4 -->
+          <div class="concept-card">
+            <div class="card-num">04</div>
+            <div class="card-icon-wrapper gold">
+              <i data-lucide="repeat"></i>
+            </div>
+            <h3 class="card-title">학습 (Learning)</h3>
+            <p class="card-content">디지털 트윈 기반의 대규모 물리 시뮬레이션과 현실에서의 주행/조작 경험을 학습하여 끝없이 피드백 루프를 그리며 진화합니다.</p>
+            <div class="card-glow"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Comparison -->
+    <section id="compare" class="section compare-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">PARADIGM SHIFT</span>
+          <h2 class="section-title">기존 AI와의 차이점</h2>
+          <p class="section-desc">가상 공간에 갇혀 있던 Generative AI와 물리 세계와 상호작용하는 Physical AI의 패러다임 차이를 비교해 보세요.</p>
+        </div>
+        <div class="table-wrapper">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>비교 항목</th>
+                <th class="col-highlight-alt">생성형 AI (LLM / LMM)</th>
+                <th class="col-highlight">피지컬 AI (Physical AI)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-label">활동 영역</td>
+                <td>가상/사이버 공간 (디지털 월드)</td>
+                <td class="highlight-cell">3차원 현실 공간 (리얼 월드)</td>
+              </tr>
+              <tr>
+                <td class="row-label">주요 상호작용</td>
+                <td>텍스트, 이미지, 소스코드 생성 및 변환</td>
+                <td class="highlight-cell">물리적 객체 조작, 자율 주행, 공간 제어</td>
+              </tr>
+              <tr>
+                <td class="row-label">오류 발생 시 파급력</td>
+                <td>말실수(환각 현상), 오답 작성에 그침</td>
+                <td class="highlight-cell text-danger">충돌, 파손 등 직접적인 <strong>물리적 사고</strong> 발생</td>
+              </tr>
+              <tr>
+                <td class="row-label">최우선 가치</td>
+                <td>정보의 요약, 창의성, 풍부한 표현력</td>
+                <td class="highlight-cell text-success">정밀 제어, 현실 신뢰성, <strong>절대적 안전성</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Key Use Cases -->
+    <section id="cases" class="section cases-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">REAL WORLD APPLICATIONS</span>
+          <h2 class="section-title">주요 적용 사례</h2>
+          <p class="section-desc">이미 우리 산업과 일상 깊숙이 들어와 현실세계를 혁신하고 있는 대표적인 피지컬 AI 분야들입니다.</p>
+        </div>
+        <div class="grid cases-grid">
+          <!-- Case 1 -->
+          <div class="case-card">
+            <div class="case-img-container">
+              <img src="smart_factory.png" alt="스마트 팩토리 자동화 로봇" class="case-img">
+              <div class="case-overlay"></div>
+              <span class="case-badge">제조 / 스마트 팩토리</span>
+            </div>
+            <div class="case-body">
+              <h3 class="case-title">스마트 팩토리 (자동화 로봇)</h3>
+              <p class="case-desc">협동 로봇과 자율 이동 로봇(AMR)이 공장 환경을 지능적으로 인지하고 부품 운반부터 초정밀 조립까지 복잡한 생산 프로세스를 사람 없이 실시간으로 최적화합니다.</p>
+            </div>
+          </div>
+          <!-- Case 2 -->
+          <div class="case-card">
+            <div class="case-img-container">
+              <img src="surgical_robot.png" alt="의료 수술 로봇" class="case-img">
+              <div class="case-overlay"></div>
+              <span class="case-badge">의료 / 헬스케어</span>
+            </div>
+            <div class="case-body">
+              <h3 class="case-title">의료 및 수술 로봇</h3>
+              <p class="case-desc">외과 의사의 손 움직임을 3차원으로 실시간 보정하고 정밀 필터링하여 최소 침습 수술을 보조하며, 원격 진료와 결합해 의료 사각지대를 혁신적으로 해소합니다.</p>
+            </div>
+          </div>
+          <!-- Case 3 -->
+          <div class="case-card">
+            <div class="case-img-container">
+              <img src="autonomous_mobility.png" alt="자율주행 모빌리티" class="case-img">
+              <div class="case-overlay"></div>
+              <span class="case-badge">모빌리티 / 자율주행</span>
+            </div>
+            <div class="case-body">
+              <h3 class="case-title">자율주행 모빌리티</h3>
+              <p class="case-desc">차량 주변 360도의 모든 위협 요소와 동적 상황을 감지해 차선 변경, 가감속, 비상 정지를 자율 제어함으로써 교통 혼잡과 사고 위험을 획기적으로 낮춥니다.</p>
+            </div>
+          </div>
+          <!-- Case 4 -->
+          <div class="case-card">
+            <div class="case-img-container">
+              <img src="humanoid_robot.png" alt="휴머노이드 스마트 홈 로봇" class="case-img">
+              <div class="case-overlay"></div>
+              <span class="case-badge">일상 / 스마트 홈</span>
+            </div>
+            <div class="case-body">
+              <h3 class="case-title">스마트 홈 (휴머노이드)</h3>
+              <p class="case-desc">가정용 로봇 및 휴머노이드 보조 기기가 인간 생활 환경의 복잡한 물체들을 파지하고 설거지, 정리정돈, 동반자 대화 등을 통해 개인 맞춤형 홈 헬퍼 역할을 수행합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Interactive DB Area -->
+    <section id="interactive" class="section interactive-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">INTERACTIVE ZONE</span>
+          <h2 class="section-title">실시간 투표 및 아이디어 보드</h2>
+          <p class="section-desc">피지컬 AI가 가져올 혁신적인 변화에 동참해 주세요. 여러분의 생생한 의견과 독창적인 비전은 실시간으로 저장되고 공유됩니다.</p>
+        </div>
+        <div class="interactive-grid">
+          <!-- Left: Real-time Voting -->
+          <div class="interactive-card glass-panel">
+            <div class="panel-header">
+              <div class="icon-indicator"><i data-lucide="vote"></i></div>
+              <h3>가장 기대되는 피지컬 AI 분야는?</h3>
+            </div>
+            <p class="panel-subtitle">가장 빠른 혁신과 사회적 파급력이 클 것으로 예상되는 한 분야에 투표해 주세요.</p>
+            
+            <div class="vote-buttons-grid">
+              <button class="vote-btn" data-category="제조">
+                <i data-lucide="factory"></i><span>제조</span>
+              </button>
+              <button class="vote-btn" data-category="물류">
+                <i data-lucide="truck"></i><span>물류</span>
+              </button>
+              <button class="vote-btn" data-category="의료">
+                <i data-lucide="activity"></i><span>의료</span>
+              </button>
+              <button class="vote-btn" data-category="일상">
+                <i data-lucide="smile"></i><span>일상</span>
+              </button>
+            </div>
+
+            <!-- Vote Progress Bars -->
+            <div class="vote-results">
+              <!-- 제조 Progress -->
+              <div class="progress-item" id="result-제조">
+                <div class="progress-labels">
+                  <span class="category-name">제조 (Smart Factory)</span>
+                  <span class="percent-val">0% (0표)</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill fill-cyan" style="width: 0%"></div>
+                </div>
+              </div>
+              <!-- 물류 Progress -->
+              <div class="progress-item" id="result-물류">
+                <div class="progress-labels">
+                  <span class="category-name">물류 (Logistics)</span>
+                  <span class="percent-val">0% (0표)</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill fill-purple" style="width: 0%"></div>
+                </div>
+              </div>
+              <!-- 의료 Progress -->
+              <div class="progress-item" id="result-의료">
+                <div class="progress-labels">
+                  <span class="category-name">의료 (Healthcare)</span>
+                  <span class="percent-val">0% (0표)</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill fill-green" style="width: 0%"></div>
+                </div>
+              </div>
+              <!-- 일상 Progress -->
+              <div class="progress-item" id="result-일상">
+                <div class="progress-labels">
+                  <span class="category-name">일상 (Daily Life)</span>
+                  <span class="percent-val">0% (0표)</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill fill-gold" style="width: 0%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="votes-total-bar">총 투표 수: <span id="total-votes-count">0</span>표</div>
+          </div>
+
+          <!-- Right: Idea Bulletin Board -->
+          <div class="interactive-card glass-panel">
+            <div class="panel-header">
+              <div class="icon-indicator"><i data-lucide="message-square"></i></div>
+              <h3>피지컬 AI 아이디어 보드</h3>
+            </div>
+            <p class="panel-subtitle">현실의 어떤 영역에 피지컬 AI가 적용되면 편리할지 여러분의 참신한 아이디어를 들려주세요!</p>
+
+            <form id="idea-form" class="idea-form">
+              <div class="form-group">
+                <label for="nickname">닉네임</label>
+                <input type="text" id="nickname" required placeholder="작성자명 또는 닉네임 입력" maxlength="20">
+              </div>
+              <div class="form-group">
+                <label for="idea-text">아이디어 제안</label>
+                <textarea id="idea-text" required placeholder="예: 해양 플라스틱 쓰레기를 자율 수거하는 바다 청소 피지컬 로봇이 생기면 좋겠습니다." maxlength="250"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary form-submit-btn">
+                <span>아이디어 제출</span>
+                <i data-lucide="send"></i>
+              </button>
+            </form>
+
+            <div class="ideas-list-container">
+              <h4>최근 등록된 아이디어</h4>
+              <div id="ideas-list" class="ideas-list">
+                <!-- Ideas populated dynamically -->
+                <div class="loading-spinner">아이디어를 로딩하고 있습니다...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section 6: Robot's Eye View -->
+    <section id="perception" class="section perception-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">REAL-TIME PERCEPTION</span>
+          <h2 class="section-title">로봇의 시선 (Robot's Eye View)</h2>
+          <p class="section-desc">피지컬 AI가 멀티모달 센서 데이터를 기반으로 실시간으로 물리 공간 내 사물을 인식하고 정밀 속성을 분석하는 능력을 체험해 보세요.</p>
+        </div>
+        <div class="perception-display glass-panel">
+          <div class="perception-image-wrapper">
+            <img src="robot_view_bg.png" alt="로봇의 사물 인지 환경" class="perception-bg">
+            <div class="perception-scan-line"></div>
+            
+            <!-- Hotspot 1: Glass Cup -->
+            <div class="hotspot" id="hotspot-glass" style="top: 31%; left: 32.5%; width: 14%; height: 26%;" 
+                 data-class="유리잔 (Glass Cup)" 
+                 data-material="SiO2 (유리, 깨지기 쉬움)" 
+                 data-mass="250g" 
+                 data-force="권장 파지력: 1.2N" 
+                 data-warning="충격 최소화 필요, 파손 주의">
+              <div class="bounding-box"></div>
+              <div class="hotspot-pulse"></div>
+              <div class="perception-tooltip">
+                <div class="tooltip-header"><i data-lucide="scan"></i> OBJECT IDENTIFIED</div>
+                <div class="tooltip-body"></div>
+              </div>
+            </div>
+            
+            <!-- Hotspot 2: Apple -->
+            <div class="hotspot" id="hotspot-apple" style="top: 51.5%; left: 57.5%; width: 11%; height: 16.5%;" 
+                 data-class="사과 (Organic Apple)" 
+                 data-material="유기물 (Soft / Bio)" 
+                 data-mass="180g" 
+                 data-force="생체 마찰 제어: 0.35μ" 
+                 data-warning="과도한 파지 압력 시 짓눌림 주의">
+              <div class="bounding-box"></div>
+              <div class="hotspot-pulse"></div>
+              <div class="perception-tooltip">
+                <div class="tooltip-header"><i data-lucide="scan"></i> OBJECT IDENTIFIED</div>
+                <div class="tooltip-body"></div>
+              </div>
+            </div>
+            
+            <!-- Hotspot 3: Dumbbell -->
+            <div class="hotspot" id="hotspot-dumbbell" style="top: 67%; left: 17%; width: 22.5%; height: 23.5%;" 
+                 data-class="무쇠 덤벨 (Cast Iron Dumbbell)" 
+                 data-material="철 (Heavy Iron)" 
+                 data-mass="10kg" 
+                 data-force="최대 모터 토크 요구 (100% Power)" 
+                 data-warning="고중량 낙하물 주의, 관성 보정 필요">
+              <div class="bounding-box"></div>
+              <div class="hotspot-pulse"></div>
+              <div class="perception-tooltip">
+                <div class="tooltip-header"><i data-lucide="scan"></i> OBJECT IDENTIFIED</div>
+                <div class="tooltip-body"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="hud-status-info">
+            <p><i data-lucide="info"></i> 마우스를 이미지 속 사물(유리잔, 사과, 덤벨) 위로 가져가면 로봇의 시뮬레이티드 Bounding Box 및 물리 분석 HUD가 활성화됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Digital Twin Simulator -->
+    <section id="simulation" class="section simulation-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">PHYSICS SIMULATION</span>
+          <h2 class="section-title">디지털 트윈 (Digital Twin) 시뮬레이터</h2>
+          <p class="section-desc">가상 공간에서 물리 법칙(Gravity, Friction, Force)을 계산하여 행동을 결정하는 피지컬 AI를 체험해 보세요.</p>
+        </div>
+        <div class="simulation-container glass-panel">
+          <!-- Left: Sliders -->
+          <div class="sim-controls">
+            <h3>물리 제어 파라미터</h3>
+            <p class="sim-controls-desc">세 가지 물리 변수의 슬라이더 값을 적절히 밸런스 있게 조율한 후 실행하십시오.</p>
+            
+            <div class="control-group">
+              <div class="control-label">
+                <span>로봇 팔 파지력 (Grip Force)</span>
+                <span class="control-value" id="val-grip">50 N</span>
+              </div>
+              <input type="range" id="slider-grip" min="0" max="100" value="50" class="sim-slider">
+              <div class="slider-labels">
+                <span>약함 (0N)</span>
+                <span>적정 (35-75N)</span>
+                <span>과도 (100N)</span>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>화물 적재 무게 (Cargo Mass)</span>
+                <span class="control-value" id="val-weight">20 kg</span>
+              </div>
+              <input type="range" id="slider-weight" min="1" max="50" value="20" class="sim-slider">
+              <div class="slider-labels">
+                <span>가벼움 (1kg)</span>
+                <span>중간 (25kg)</span>
+                <span>무거움 (50kg)</span>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>접촉 표면 마찰계수 (Friction)</span>
+                <span class="control-value" id="val-friction">0.50 μ</span>
+              </div>
+              <input type="range" id="slider-friction" min="0.0" max="1.0" step="0.05" value="0.50" class="sim-slider">
+              <div class="slider-labels">
+                <span>미끄러움 (0.0)</span>
+                <span>일반 (0.5)</span>
+                <span>거침 (1.0)</span>
+              </div>
+            </div>
+
+            <div class="sim-actions">
+              <button id="run-sim-btn" class="btn btn-primary">
+                <i data-lucide="play"></i>
+                <span>시뮬레이션 실행</span>
+              </button>
+              <button id="reset-sim-btn" class="btn btn-secondary">
+                <i data-lucide="rotate-ccw"></i>
+                <span>초기화</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Graphic Visualizer -->
+          <div class="sim-visualizer">
+            <div class="visualizer-header">
+              <div class="status-indicator" id="sim-status">STANDBY</div>
+              <span>SIMULATED PHYSICAL ENVIRONMENT</span>
+            </div>
+            <div class="visualizer-screen">
+              <!-- Grid Background pattern -->
+              <div class="grid-overlay"></div>
+              
+              <!-- Robot Arm Visuals -->
+              <div class="robot-arm-assembly">
+                <div class="robot-base"></div>
+                <div class="robot-shoulder">
+                  <div class="robot-upper-arm">
+                    <div class="robot-elbow">
+                      <div class="robot-forearm">
+                        <div class="robot-wrist">
+                          <div class="robot-gripper">
+                            <div class="claw claw-left"></div>
+                            <div class="claw claw-right"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Object Box -->
+              <div class="sim-box-element" id="sim-box">
+                <span class="box-label">CARGO</span>
+              </div>
+              
+              <!-- Ground elements -->
+              <div class="sim-floor-element"></div>
+              <div class="sim-target-zone">
+                <span class="zone-label">GOAL</span>
+              </div>
+            </div>
+            
+            <!-- Output Console log -->
+            <div class="sim-console">
+              <div class="console-line line-1">&gt; Physical Engine: Active</div>
+              <div class="console-line line-2" id="sim-console-output">&gt; Awaiting execution parameters...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 PHYSICAL.AI. All Rights Reserved. Built for the Future.</p>
+      <p class="footer-links">
+        <a href="#hero">처음으로</a> &middot; 
+        <a href="#about">개념 설명</a> &middot; 
+        <a href="#compare">비교</a> &middot; 
+        <a href="#cases">적용 사례</a> &middot; 
+        <a href="#perception">로봇의 시선</a> &middot; 
+        <a href="#simulation">디지털 트윈</a> &middot; 
+        <a href="#interactive">실시간 참여</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Firebase scripts & App core logic -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
